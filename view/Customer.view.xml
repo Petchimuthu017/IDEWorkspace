@@ -1,0 +1,70 @@
+<mvc:View
+xmlns="sap.m"
+xmlns:mvc="sap.ui.core.mvc"
+xmlns:core="sap.ui.core"
+xmlns:f="sap.ui.layout.form"
+xmlns:l="sap.ui.layout"
+controllerName="walkthrough.controller.Customer">
+	<Page id="Custpage"
+	title="{i18n>customerPage}"
+	showNavButton="true"
+	navButtonPress="onNavBack">
+		<Label id="lableName" text="Customer Name: " 
+		labelFor="custname" design="Bold" 
+		class="sapUiSmallMarginBeginEnd sapUiSmallMarginTop"/>
+		<Input id="custname" width="20%"
+			valueHelpOnly="true"
+			showValueHelp="true"
+			valueHelpRequest="onValueHelp"
+			class="sapUiSmallMarginBegin sapUiSmallMarginTop"/>
+		<Toolbar id="hline" height="1px" class="sapUiLargeMarginTop"/>
+		<content>
+			<f:SimpleForm id="form1"
+				title = "Customer Information"
+				minWidth="1024"
+				editable="false"
+				layout="ResponsiveGridLayout"
+				labelSpanL="3" labelSpanM="3" emptySpanL="4" emptySpanM="4"
+				columnsL="1" columnsM="1">
+				<f:content>
+					<core:Title text = "General" id="title1"/>
+					<Label id="label1" text="Customer ID"/>
+					<Text id="text1" text="{cust>/CustomerID}"/>
+					<Label id="label2" text="Company Name"/>
+					<Text id="text2" text="{cust>/CompanyName}"/>
+					<Label id="label3" text="Contact name"/>
+					<Text id="text3" text="{cust>/ContactName}"/>
+					<Label id="label4" text="Designation"/>
+					<Text id="text4" text="{cust>/ContactTitle}"/>
+				<!--	<core:Title text = "Contact Details" id="title2"/>
+					<Label id="label5" text="Address"/>
+					<Text id="text5" text="{cust>/Address}"/>
+					<Label id="label6" text="City"/>
+					<Text id="text6" text="{cust>/City}"/>
+					<Label id="label8" text="Postal Code"/>
+					<Text id="text8" text="{cust>/PostalCode}"/>
+					<Label id="label9" text="Country"/>
+					<Text id="text9" text="{cust>/Country}"/>
+					<Label id="label10" text="Phone"/>
+					<Text id="text10" text="{cust>/Phone}"/>
+					<Label id="label11" text="Fax"/>
+					<Text id="text11" text="{cust>/Fax}"/> -->
+				</f:content>
+			</f:SimpleForm>
+			<List id = "customerList"
+				width = "auto"
+				items = "{ path: 'cust>/items' }" 
+				noDataText = "No Data Available">
+				<headerToolbar>
+					<Toolbar id="cust_item_head">
+						<Title id="_IDEGen_title1" text="Customer Item"/>
+					</Toolbar>
+				</headerToolbar>
+				<items>
+					<ObjectListItem id="_IDEGen_objectlistitem0"  title="{cust>Country}" >
+					</ObjectListItem>
+				</items>
+			</List>
+		</content>
+	</Page>
+</mvc:View>

@@ -1,0 +1,20 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core">
+	<SelectDialog 
+		id="CustDialog"
+		noDataText="No Products Found"
+		title="Select Customer"
+		confirm="handleValueHelpClose"
+		cancel="handleValueHelpClose"
+		showClearButton="true"
+		items="{
+			path : 'invoice>/Customers'
+		}">
+		<StandardListItem id="custList"
+			selected="{selected}"
+			title="{invoice>CustomerID}"
+			description="{invoice>CompanyName}"
+			type="Active" />
+	</SelectDialog>
+</core:FragmentDefinition>

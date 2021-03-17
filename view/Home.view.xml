@@ -1,0 +1,42 @@
+<mvc:View
+xmlns="sap.m"  
+xmlns:mvc="sap.ui.core.mvc"  
+controllerName="walkthrough.controller.Home" >
+	<Page id="invTile" title="Home">
+		<headerContent>
+			<Button id="_IDEGen_button0"
+					icon="sap-icon://hello-world"
+					press=".onOpenDialog"/>
+		</headerContent>
+		<content>
+			<mvc:XMLView id="_IDEGen_xmlview0" viewName="walkthrough.view.HelloPanel"/>
+			<GenericTile id= "InvoiceTile"
+			class= "sapUiMediumMarginBegin sapUiSmallMarginTop tileLayout"
+			header = "{i18n>invoiceListTitle}"
+			subheader = "Invoices Open"
+			press = "onTilePress"  >
+				<TileContent id="Tilecont">
+					<NumericContent id="tilenumber" value="{count>/invcount}" icon="sap-icon://document" withMargin="true"/>
+				</TileContent>
+			</GenericTile>
+			<GenericTile id="OrdersTile"
+				class= "sapUiSmallMarginBegin sapUiSmallMarginTop tileLayout" 
+				header= "{i18n>ordersListTitle}"
+				subheader= "Sales Orders Open"
+				press= "onTileOrder" >
+				<TileContent id="ordertilecontent">
+					<NumericContent id="tilenumber1" value="{count>/ordcount}" icon="sap-icon://sales-order" withMargin="true"/>
+				</TileContent>
+			</GenericTile>
+			<GenericTile id="customerTile"
+				class="sapUiSmallMarginBegin sapUiSmallMarginTop titleLayout"
+				header="{i18n>customerTitle}"
+				subheader="Customer Master Data"
+				press=".onTileCustomer" >
+				<TileContent id="customerTileContent">
+					<NumericContent id="tilenumber2" value="{count>/custcount}" icon="sap-icon://customer" withMargin="true"/>
+				</TileContent>
+			</GenericTile>
+		</content>
+	</Page>
+</mvc:View>

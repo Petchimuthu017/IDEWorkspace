@@ -1,0 +1,69 @@
+<mvc:view 
+xmlns="sap.m" 
+xmlns:mvc="sap.ui.core.mvc" 
+controllerName="walkthrough.controller.Sales">
+	<SplitApp id="salesview" 
+	initialDetail="detail" 
+	initialMaster="master">
+		<detailPages>
+			<Page id="detail" title="{i18n>itemsListTitle}" 
+			class="sapUiStdPage" 
+			busy="{global>/busy}"
+			showNavButton="true" 
+			navButtonPress=".toMaster">
+				<content>
+					<Table id="itemList" headerText="{i18n>orderID} {global>/Order}"
+						width="auto" 
+						items="{ path: 'global>/Items', sorter : { path : 'OrderID' } }" 
+						noDataText="Select a sales Order">
+						<columns>
+							<Column id="prodColum" width="8em">
+								<Text id="prodtext" text="ProductID"/>
+							</Column>
+							<Column id="priceColum" width="8em">
+								<Text id="PriceText" text="Price Per Unit"/>
+							</Column>
+							<Column id="qtyColum" width="8em">
+								<Text id="QtyText" text="Quantity"/>
+							</Column>
+							<Column id="netColum" width="8em">
+								<Text id="netAmt" text="Net Amount"/>
+							</Column>
+						</columns>
+						<items>
+							<ColumnListItem id="tabItem">
+								<cells>
+									<ObjectIdentifier id="id" title="{global>ProductID}"/>
+									<Text id="price" text="{global>UnitPrice}"/>
+									<Text id="qty" text="{global>Quantity}"/>
+									<Text id="netAmount" text="{parts:[{path:'global>UnitPrice'},{path: 'global&gt;Quantity'}],formatter:'.formatter.netAmount'}"/>
+								</cells>
+							</ColumnListItem>
+						</items>
+					</Table>
+				</content>
+			</Page>
+		</detailPages>
+		<masterPages>
+			<Page id="master"
+				title="{i18n>ordersListTitle}" 
+				class="sapUiStdPage" 
+				showNavButton="true" 
+				navButtonPress=".onNavBack"
+				backgroundDesign= "List">
+				<content>
+					<List id="salesList" 
+					headerText="{i18n>ordersListTitle}" 
+					width="auto" 
+					updateFinished=".onItemPress"
+					items="{ path: 'invoice>/Orders', sorter : { path : 'OrderID' } }">
+						<items>
+							<ObjectListItem id="salesorderslist" title="{invoice>OrderID}" type="Navigation" press="onItemPress">
+							</ObjectListItem>
+						</items>
+					</List>
+				</content>
+			</Page>
+		</masterPages>
+	</SplitApp>
+</mvc:view>

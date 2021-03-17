@@ -1,0 +1,30 @@
+<mvc:View
+   controllerName="walkthrough.controller.HelloPanel"
+   xmlns="sap.m"
+   xmlns:mvc="sap.ui.core.mvc">
+   <Panel id="_IDEGen_panel0"
+      headerText="{i18n>helloPanelTitle}"
+      class="sapUiResponsiveMargin"
+      width="auto" >
+      <content>
+	     <Button
+	        id="helloDialogButton"
+	        icon="sap-icon://world"
+	        text="{i18n>openDialogButtonText}"
+	        press=".onOpenDialog"
+	        class="sapUiSmallMarginEnd"/>
+         <Button id="_IDEGen_button0"
+            text="{i18n>showHelloButtonText}"
+            press=".onShowHello"
+            class="sapUiSmallMarginEnd"/>
+         <Label labelFor="_IDEGen_input0" text="text" id="lab1"/>
+         <Input id="_IDEGen_input0"
+            value="{a>/recipient/name}"
+            valueLiveUpdate="true"
+            width="40%"/>
+         <FormattedText id="_IDEGen_formattedtext0"
+            htmlText="Hello {a>/recipient/name}"
+            class="sapUiSmallMargin sapThemeHighlight-asColor myCustomText"/>
+      </content>
+   </Panel>
+</mvc:View>
