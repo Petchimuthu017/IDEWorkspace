@@ -12,7 +12,7 @@ sap.ui.define([
 	return Controller.extend("walkthrough.controller.Customer",{
 		onInit: function () {
 			var gData = new JSONModel({ 
-				items: {
+				items: { 
 					 0: {"Country": "A"},
 					 1: {"Country": "B"},
 					 2: {"Country": "C"},
